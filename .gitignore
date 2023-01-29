@@ -1,0 +1,7 @@
+.build/*
+cache/**/**
+chroot/**/**
+binary*
+binary.modified_timestamps
+*.iso
+live*
