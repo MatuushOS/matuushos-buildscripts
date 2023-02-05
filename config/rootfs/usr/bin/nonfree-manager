@@ -1,0 +1,8 @@
+#!/bin/bash
+figlet "MatuusOS" | lolcat
+echo "Manager for nonfree software"
+echo "Options:"
+printf "\t\t1: Install restricted codecs and fonts"
+printf "\t\t2: (If you have NVIDIA GPU) install drivers for NVIDIA GPU"
+read -p "Choose the option (1|2) or type exit in lowercase: " choice
+

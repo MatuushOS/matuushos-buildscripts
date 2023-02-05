@@ -1,0 +1,16 @@
+#!/bin/bash
+source ./fn.sh
+figlet MatuusOS | lolcat
+printf "SecMan - a security manager for MatuusOS\nOptions:\n\t\t1) Enable/disable SELinux\n\t\t2) Enable/disable firewall\n\t\t3) Setup automatic updates"
+read -p "Select the option (1|2|3) or type exit: " choice
+if [ $choice = 1 ]; then
+	if [ ! -f "/usr/libexec/selinux" ]; then
+	selinux_install
+else
+	selinux_uninstall
+elif [ $choice = "2" ]; then
+	firewall
+elif [ $choice = "3" ]; then
+	autoupd
+fi
+

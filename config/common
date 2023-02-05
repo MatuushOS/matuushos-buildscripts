@@ -4,7 +4,7 @@
 LB_CONFIGURATION_VERSION="20220505"
 
 # Set package manager
-LB_APT="nala"
+LB_APT="aptitude"
 
 # Set proxy for HTTP connections
 LB_APT_HTTP_PROXY=""

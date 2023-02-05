@@ -1,0 +1,29 @@
+#!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run with sudo before the command"
+  exit
+fi
+figlet "MatuusOS" | lolcat
+printf "\t\tEasy shell changer\t\t"
+printf "\t\tAvailabe options are:\n\t\t\t1: Bash - the default one\n\t\t\t2: ZSH - the Z Shell\n\t\t\t and 3: Fish - the friendly interactive shell with autocomplete\n"
+read -p "Type a number (1|2|3) or type exit:" choice
+if [ $choice = 1 ]; then
+        echo "Setting it to Bash"
+        chsh -s /bin/bash $USER
+elif [ $choice = 2 ]; then
+        echo "Checking whether is ZSH installed"
+        if [ ! -f /bin/zsh ]; then
+                echo "ZSH is not installed, installing it right now"
+                apt update; apt install -y zsh
+        fi
+        echo "Setting ZSH as default shell"
+        chsh -s /bin/zsh $USER
+elif [ $choice = 3 ]; then
+        echo "Checking whether Fish is installed"
+        if [ ! -f /usr/bin/fish ]; then
+                echo "Fish is not installed, installing it right now"
+                apt update; apt install -y fish
+        fi
+        echo "Seting Fish as the default shell"
+        chsh -s /usr/bin/fish $USER
+fi
