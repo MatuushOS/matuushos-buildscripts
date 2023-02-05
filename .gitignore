@@ -5,4 +5,4 @@ binary*
 binary.modified_timestamps
 *.iso
 live*
-chroot.*
+chroot.*.*
